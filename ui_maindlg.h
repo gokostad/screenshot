@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'maindlg.ui'
 **
-** Created: Mon 8. Mar 01:47:05 2010
+** Created: Tue Mar 9 18:36:37 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -17,11 +17,14 @@
 #include <QtGui/QDialog>
 #include <QtGui/QFrame>
 #include <QtGui/QGraphicsView>
+#include <QtGui/QGridLayout>
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QPushButton>
 #include <QtGui/QSpinBox>
 #include <QtGui/QWidget>
+#include "qbuttonframe.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -47,18 +50,28 @@ public:
     QFrame *line_2;
     QFrame *line_4;
     QPushButton *btnEnhancment;
-    QPushButton *btnColorSelector;
     QLabel *label;
     QFrame *line_3;
     QPushButton *btnUndo;
     QPushButton *pushButton_2;
     QFrame *line_6;
+    QWidget *gridLayoutWidget;
+    QGridLayout *gridLayout;
+    QPushButton *btnColorSelector;
+    QHBoxLayout *horizontalLayout;
+    QButtonFrame *frm1Color;
+    QButtonFrame *frm2Color;
+    QButtonFrame *frm3Color;
+    QButtonFrame *frm4Color;
+    QButtonFrame *frm5Color;
+    QButtonFrame *frmCurrentColor;
+    QPushButton *btnDeleteMe;
 
     void setupUi(QDialog *MainDlg)
     {
         if (MainDlg->objectName().isEmpty())
             MainDlg->setObjectName(QString::fromUtf8("MainDlg"));
-        MainDlg->resize(534, 383);
+        MainDlg->resize(534, 471);
         btnCapture = new QPushButton(MainDlg);
         btnCapture->setObjectName(QString::fromUtf8("btnCapture"));
         btnCapture->setGeometry(QRect(10, 5, 134, 31));
@@ -76,7 +89,7 @@ public:
         lbl4->setGeometry(QRect(156, 96, 351, 16));
         graphicsView = new QGraphicsView(MainDlg);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(158, 126, 353, 241));
+        graphicsView->setGeometry(QRect(160, 146, 353, 241));
         grpCapture = new QWidget(MainDlg);
         grpCapture->setObjectName(QString::fromUtf8("grpCapture"));
         grpCapture->setGeometry(QRect(8, 35, 135, 47));
@@ -96,37 +109,34 @@ public:
         spinBox->setGeometry(QRect(23, 22, 42, 22));
         grpEdit = new QWidget(MainDlg);
         grpEdit->setObjectName(QString::fromUtf8("grpEdit"));
-        grpEdit->setGeometry(QRect(8, 82, 137, 291));
+        grpEdit->setGeometry(QRect(8, 82, 137, 379));
         label_2 = new QLabel(grpEdit);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(4, 155, 111, 16));
+        label_2->setGeometry(QRect(4, 205, 111, 16));
         btnClipboard = new QPushButton(grpEdit);
         btnClipboard->setObjectName(QString::fromUtf8("btnClipboard"));
-        btnClipboard->setGeometry(QRect(21, 238, 75, 23));
+        btnClipboard->setGeometry(QRect(21, 286, 75, 23));
         line_5 = new QFrame(grpEdit);
         line_5->setObjectName(QString::fromUtf8("line_5"));
-        line_5->setGeometry(QRect(4, 145, 129, 16));
+        line_5->setGeometry(QRect(4, 195, 129, 16));
         line_5->setFrameShape(QFrame::HLine);
         line_5->setFrameShadow(QFrame::Sunken);
         btnSave = new QPushButton(grpEdit);
         btnSave->setObjectName(QString::fromUtf8("btnSave"));
-        btnSave->setGeometry(QRect(21, 208, 75, 23));
+        btnSave->setGeometry(QRect(21, 256, 75, 23));
         line_2 = new QFrame(grpEdit);
         line_2->setObjectName(QString::fromUtf8("line_2"));
-        line_2->setGeometry(QRect(4, 197, 129, 16));
+        line_2->setGeometry(QRect(4, 245, 129, 16));
         line_2->setFrameShape(QFrame::HLine);
         line_2->setFrameShadow(QFrame::Sunken);
         line_4 = new QFrame(grpEdit);
         line_4->setObjectName(QString::fromUtf8("line_4"));
-        line_4->setGeometry(QRect(4, 105, 131, 16));
+        line_4->setGeometry(QRect(4, 130, 131, 16));
         line_4->setFrameShape(QFrame::HLine);
         line_4->setFrameShadow(QFrame::Sunken);
         btnEnhancment = new QPushButton(grpEdit);
         btnEnhancment->setObjectName(QString::fromUtf8("btnEnhancment"));
-        btnEnhancment->setGeometry(QRect(21, 268, 75, 23));
-        btnColorSelector = new QPushButton(grpEdit);
-        btnColorSelector->setObjectName(QString::fromUtf8("btnColorSelector"));
-        btnColorSelector->setGeometry(QRect(20, 117, 75, 23));
+        btnEnhancment->setGeometry(QRect(21, 316, 75, 23));
         label = new QLabel(grpEdit);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(4, 47, 111, 16));
@@ -146,21 +156,58 @@ public:
         line_6->setGeometry(QRect(2, 5, 133, 16));
         line_6->setFrameShape(QFrame::HLine);
         line_6->setFrameShadow(QFrame::Sunken);
-        label_2->raise();
-        btnClipboard->raise();
-        line_5->raise();
-        btnSave->raise();
-        line_2->raise();
-        line_4->raise();
-        btnEnhancment->raise();
-        btnColorSelector->raise();
-        label->raise();
-        label->raise();
-        line_3->raise();
-        btnUndo->raise();
-        pushButton_2->raise();
-        line_6->raise();
-        grpCapture->raise();
+        gridLayoutWidget = new QWidget(grpEdit);
+        gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
+        gridLayoutWidget->setGeometry(QRect(2, 149, 131, 51));
+        gridLayout = new QGridLayout(gridLayoutWidget);
+        gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        btnColorSelector = new QPushButton(gridLayoutWidget);
+        btnColorSelector->setObjectName(QString::fromUtf8("btnColorSelector"));
+
+        gridLayout->addWidget(btnColorSelector, 0, 0, 1, 2);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        frm1Color = new QButtonFrame(gridLayoutWidget);
+        frm1Color->setObjectName(QString::fromUtf8("frm1Color"));
+        frm1Color->setAutoFillBackground(false);
+
+        horizontalLayout->addWidget(frm1Color);
+
+        frm2Color = new QButtonFrame(gridLayoutWidget);
+        frm2Color->setObjectName(QString::fromUtf8("frm2Color"));
+
+        horizontalLayout->addWidget(frm2Color);
+
+        frm3Color = new QButtonFrame(gridLayoutWidget);
+        frm3Color->setObjectName(QString::fromUtf8("frm3Color"));
+
+        horizontalLayout->addWidget(frm3Color);
+
+        frm4Color = new QButtonFrame(gridLayoutWidget);
+        frm4Color->setObjectName(QString::fromUtf8("frm4Color"));
+
+        horizontalLayout->addWidget(frm4Color);
+
+        frm5Color = new QButtonFrame(gridLayoutWidget);
+        frm5Color->setObjectName(QString::fromUtf8("frm5Color"));
+
+        horizontalLayout->addWidget(frm5Color);
+
+
+        gridLayout->addLayout(horizontalLayout, 1, 0, 1, 2);
+
+        frmCurrentColor = new QButtonFrame(grpEdit);
+        frmCurrentColor->setObjectName(QString::fromUtf8("frmCurrentColor"));
+        frmCurrentColor->setGeometry(QRect(6, 142, 125, 5));
+        frmCurrentColor->setAutoFillBackground(false);
+        btnDeleteMe = new QPushButton(MainDlg);
+        btnDeleteMe->setObjectName(QString::fromUtf8("btnDeleteMe"));
+        btnDeleteMe->setGeometry(QRect(150, 60, 75, 23));
 
         retranslateUi(MainDlg);
 
@@ -181,10 +228,11 @@ public:
         btnClipboard->setText(QApplication::translate("MainDlg", "C&lipboard", 0, QApplication::UnicodeUTF8));
         btnSave->setText(QApplication::translate("MainDlg", "&Save", 0, QApplication::UnicodeUTF8));
         btnEnhancment->setText(QApplication::translate("MainDlg", "&Enhancment", 0, QApplication::UnicodeUTF8));
-        btnColorSelector->setText(QApplication::translate("MainDlg", "C&olor", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainDlg", "Drawing Tools:", 0, QApplication::UnicodeUTF8));
         btnUndo->setText(QApplication::translate("MainDlg", "&Undo", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("MainDlg", "&Redo", 0, QApplication::UnicodeUTF8));
+        btnColorSelector->setText(QApplication::translate("MainDlg", "C&olor", 0, QApplication::UnicodeUTF8));
+        btnDeleteMe->setText(QApplication::translate("MainDlg", "PushButton", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

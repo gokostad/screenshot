@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'maindlg.h'
 **
-** Created: Mon 8. Mar 00:31:44 2010
+** Created: Tue Mar 9 18:10:33 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.0)
 **
 ** WARNING! All changes made in this file will be lost!

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>534</width>
-    <height>383</height>
+    <height>471</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -81,8 +81,8 @@
   <widget class="QGraphicsView" name="graphicsView">
    <property name="geometry">
     <rect>
-     <x>158</x>
-     <y>126</y>
+     <x>160</x>
+     <y>146</y>
      <width>353</width>
      <height>241</height>
     </rect>
@@ -153,14 +153,14 @@
      <x>8</x>
      <y>82</y>
      <width>137</width>
-     <height>291</height>
+     <height>379</height>
     </rect>
    </property>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
       <x>4</x>
-      <y>155</y>
+      <y>205</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -173,7 +173,7 @@
     <property name="geometry">
      <rect>
       <x>21</x>
-      <y>238</y>
+      <y>286</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -186,7 +186,7 @@
     <property name="geometry">
      <rect>
       <x>4</x>
-      <y>145</y>
+      <y>195</y>
       <width>129</width>
       <height>16</height>
      </rect>
@@ -199,7 +199,7 @@
     <property name="geometry">
      <rect>
       <x>21</x>
-      <y>208</y>
+      <y>256</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -212,7 +212,7 @@
     <property name="geometry">
      <rect>
       <x>4</x>
-      <y>197</y>
+      <y>245</y>
       <width>129</width>
       <height>16</height>
      </rect>
@@ -225,7 +225,7 @@
     <property name="geometry">
      <rect>
       <x>4</x>
-      <y>105</y>
+      <y>130</y>
       <width>131</width>
       <height>16</height>
      </rect>
@@ -238,26 +238,13 @@
     <property name="geometry">
      <rect>
       <x>21</x>
-      <y>268</y>
+      <y>316</y>
       <width>75</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
      <string>&amp;Enhancment</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnColorSelector">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>117</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>C&amp;olor</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -325,24 +312,71 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <zorder>label_2</zorder>
-   <zorder>btnClipboard</zorder>
-   <zorder>line_5</zorder>
-   <zorder>btnSave</zorder>
-   <zorder>line_2</zorder>
-   <zorder>line_4</zorder>
-   <zorder>btnEnhancment</zorder>
-   <zorder>btnColorSelector</zorder>
-   <zorder>label</zorder>
-   <zorder>label</zorder>
-   <zorder>line_3</zorder>
-   <zorder>btnUndo</zorder>
-   <zorder>pushButton_2</zorder>
-   <zorder>line_6</zorder>
-   <zorder>grpCapture</zorder>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>2</x>
+      <y>149</y>
+      <width>131</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0" colspan="2">
+      <widget class="QPushButton" name="btnColorSelector">
+       <property name="text">
+        <string>C&amp;olor</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="2">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QButtonFrame" name="frm1Color" native="true">
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QButtonFrame" name="frm2Color" native="true"/>
+       </item>
+       <item>
+        <widget class="QButtonFrame" name="frm3Color" native="true"/>
+       </item>
+       <item>
+        <widget class="QButtonFrame" name="frm4Color" native="true"/>
+       </item>
+       <item>
+        <widget class="QButtonFrame" name="frm5Color" native="true"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QButtonFrame" name="frmCurrentColor" native="true">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>142</y>
+      <width>125</width>
+      <height>5</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QButtonFrame</class>
+   <extends>QWidget</extends>
+   <header>qbuttonframe.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

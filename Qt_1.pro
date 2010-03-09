@@ -7,11 +7,13 @@ TARGET = Qt_1
 TEMPLATE = app
 SOURCES += main.cpp \
     maindlg.cpp \
-    screenshotdlg.cpp
+    screenshotdlg.cpp \
+    qbuttonframe.cpp
 HEADERS += maindlg.h \
     screenshotdlg.h \
     ui_screenshotdlg.h \
     ui_screenshotdlg.h \
-    ui_maindlg.h
+    ui_maindlg.h \
+    qbuttonframe.h
 FORMS += maindlg.ui \
     screenshotdlg.ui

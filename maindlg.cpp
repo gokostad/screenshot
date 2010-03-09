@@ -2,6 +2,7 @@
 #include <QtGui>
 #include <QColorDialog>
 #include <QClipboard>
+#include <QFrame>
 
 #include "maindlg.h"
 #include "ui_maindlg.h"
@@ -14,6 +15,24 @@ MainDlg::MainDlg(QWidget *parent) :
     timer(0)
 {
     ui->setupUi(this);
+
+    this->ui->frm1Color->setBackgroundColor(0xff1cae);
+    this->ui->frm2Color->setBackgroundColor(0);
+    this->ui->frm3Color->setBackgroundColor(0x66CD00);
+    this->ui->frm4Color->setBackgroundColor(0xB0171F);
+    this->ui->frm5Color->setBackgroundColor(0x00FFFF);
+    this->ui->frm1Color->setPressWidget(this->ui->frmCurrentColor);
+    this->ui->frm2Color->setPressWidget(this->ui->frmCurrentColor);
+    this->ui->frm3Color->setPressWidget(this->ui->frmCurrentColor);
+    this->ui->frm4Color->setPressWidget(this->ui->frmCurrentColor);
+    this->ui->frm5Color->setPressWidget(this->ui->frmCurrentColor);
+
+    this->ui->frmCurrentColor->setFrameShape(QFrame::NoFrame);
+    this->ui->frmCurrentColor->setFrameShadow(QFrame::Raised);
+
+    this->ui->frmCurrentColor->setBackgroundColor(0x00);
+    connect(this->ui->frm1Color, SIGNAL(timeout()), this, SLOT(on_Timer()));
+
     screenShotDlg = new ScreenShotDlg(this);
     screenShotDlg->show();
 
@@ -156,3 +175,5 @@ void MainDlg::on_Timer()
 
     }
 }
+
+
