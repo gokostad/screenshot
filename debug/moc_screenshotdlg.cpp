@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'screenshotdlg.h'
 **
-** Created: Fri 5. Mar 16:54:32 2010
+** Created: Tue Mar 9 20:45:54 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.0)
 **
 ** WARNING! All changes made in this file will be lost!

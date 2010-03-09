@@ -35,7 +35,6 @@ MainDlg::MainDlg(QWidget *parent) :
 
     screenShotDlg = new ScreenShotDlg(this);
     screenShotDlg->show();
-
 }
 
 MainDlg::~MainDlg()
@@ -78,7 +77,7 @@ void MainDlg::on_btnCapture_pressed()
         this->ui->btnCapture->setText("&Reset");
         timer = new QTimer(this);
         connect(timer, SIGNAL(timeout()), this, SLOT(on_Timer()));
-        if ( this->ui->spinBox->value() > 0 )
+        if ( this->ui->cntDelay->value() > 0 )
         {
             timer->start(1000);
         }
@@ -95,7 +94,7 @@ void MainDlg::on_btnCapture_pressed()
             timer = 0;
         }
         this->ui->btnCapture->setText("&Capture");
-        screenShotDlg->resetScreenShotPic();
+        screenShotDlg->setMode(ScreenShotDlg::Capture);
         this->ui->grpCapture->show();
         this->ui->grpEdit->hide();
         this->resize(this->ui->grpCapture->width()+20, this->ui->grpCapture->y()+this->ui->grpCapture->height());
@@ -120,7 +119,9 @@ void MainDlg::on_btnSave_pressed()
 
 void MainDlg::on_btnColorSelector_pressed()
 {
-    QRgb res = QColorDialog::getRgba();
+    QColor res = QColorDialog::getColor();
+    if ( res.isValid() )
+        this->ui->frmCurrentColor->setBackgroundColor(res);
 }
 
 void MainDlg::on_btnClipboard_pressed()
@@ -131,9 +132,9 @@ void MainDlg::on_btnClipboard_pressed()
 
 void MainDlg::on_Timer()
 {
-    if ( this->ui->spinBox->value() > 0 )
-        this->ui->spinBox->setValue(this->ui->spinBox->value()-1);
-    if ( this->ui->spinBox->value() == 0 && this->dlgState == wait )
+    if ( this->ui->cntDelay->value() > 0 )
+        this->ui->cntDelay->setValue(this->ui->cntDelay->value()-1);
+    if ( this->ui->cntDelay->value() == 0 && this->dlgState == wait )
     {
         timer->stop();
         delete timer;

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'maindlg.ui'
 **
-** Created: Tue Mar 9 18:36:37 2010
+** Created: Tue Mar 9 20:41:15 2010
 **      by: Qt User Interface Compiler version 4.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -41,7 +41,7 @@ public:
     QLabel *lblSec_2;
     QLabel *lblSec;
     QFrame *line;
-    QSpinBox *spinBox;
+    QSpinBox *cntDelay;
     QWidget *grpEdit;
     QLabel *label_2;
     QPushButton *btnClipboard;
@@ -65,13 +65,14 @@ public:
     QButtonFrame *frm4Color;
     QButtonFrame *frm5Color;
     QButtonFrame *frmCurrentColor;
-    QPushButton *btnDeleteMe;
+    QLabel *label_3;
+    QSpinBox *cntPenSize;
 
     void setupUi(QDialog *MainDlg)
     {
         if (MainDlg->objectName().isEmpty())
             MainDlg->setObjectName(QString::fromUtf8("MainDlg"));
-        MainDlg->resize(534, 471);
+        MainDlg->resize(582, 489);
         btnCapture = new QPushButton(MainDlg);
         btnCapture->setObjectName(QString::fromUtf8("btnCapture"));
         btnCapture->setGeometry(QRect(10, 5, 134, 31));
@@ -89,7 +90,7 @@ public:
         lbl4->setGeometry(QRect(156, 96, 351, 16));
         graphicsView = new QGraphicsView(MainDlg);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
-        graphicsView->setGeometry(QRect(160, 146, 353, 241));
+        graphicsView->setGeometry(QRect(182, 220, 353, 241));
         grpCapture = new QWidget(MainDlg);
         grpCapture->setObjectName(QString::fromUtf8("grpCapture"));
         grpCapture->setGeometry(QRect(8, 35, 135, 47));
@@ -104,9 +105,9 @@ public:
         line->setGeometry(QRect(0, 7, 133, 16));
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
-        spinBox = new QSpinBox(grpCapture);
-        spinBox->setObjectName(QString::fromUtf8("spinBox"));
-        spinBox->setGeometry(QRect(23, 22, 42, 22));
+        cntDelay = new QSpinBox(grpCapture);
+        cntDelay->setObjectName(QString::fromUtf8("cntDelay"));
+        cntDelay->setGeometry(QRect(23, 22, 42, 22));
         grpEdit = new QWidget(MainDlg);
         grpEdit->setObjectName(QString::fromUtf8("grpEdit"));
         grpEdit->setGeometry(QRect(8, 82, 137, 379));
@@ -205,9 +206,14 @@ public:
         frmCurrentColor->setObjectName(QString::fromUtf8("frmCurrentColor"));
         frmCurrentColor->setGeometry(QRect(6, 142, 125, 5));
         frmCurrentColor->setAutoFillBackground(false);
-        btnDeleteMe = new QPushButton(MainDlg);
-        btnDeleteMe->setObjectName(QString::fromUtf8("btnDeleteMe"));
-        btnDeleteMe->setGeometry(QRect(150, 60, 75, 23));
+        label_3 = new QLabel(grpEdit);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(8, 64, 63, 16));
+        cntPenSize = new QSpinBox(grpEdit);
+        cntPenSize->setObjectName(QString::fromUtf8("cntPenSize"));
+        cntPenSize->setGeometry(QRect(78, 62, 42, 22));
+        cntPenSize->setMinimum(1);
+        cntPenSize->setMaximum(10);
 
         retranslateUi(MainDlg);
 
@@ -232,7 +238,7 @@ public:
         btnUndo->setText(QApplication::translate("MainDlg", "&Undo", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("MainDlg", "&Redo", 0, QApplication::UnicodeUTF8));
         btnColorSelector->setText(QApplication::translate("MainDlg", "C&olor", 0, QApplication::UnicodeUTF8));
-        btnDeleteMe->setText(QApplication::translate("MainDlg", "PushButton", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("MainDlg", "Rectangle", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

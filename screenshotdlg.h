@@ -11,13 +11,15 @@ namespace Ui {
 class ScreenShotDlg : public QDialog {
     Q_OBJECT
 public:
+    enum EditMode { Capture, Edit };
+
     ScreenShotDlg(QWidget *parent = 0);
     ~ScreenShotDlg();
 
     void setScreenShotPic(QPixmap pic);
     const QPixmap& getScreenShotPic() { return originalPixmap; };
 
-    void resetScreenShotPic();
+    void setMode(EditMode mode);
 
     int getWidth();
     int getHeight();
@@ -35,6 +37,7 @@ protected:
 
 private:
     Ui::ScreenShotDlg *ui;
+    EditMode mode;
 
 protected:
     void resizeEvent ( QResizeEvent * );

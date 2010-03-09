@@ -5,7 +5,8 @@
 
 ScreenShotDlg::ScreenShotDlg(QWidget *parent) :
         QDialog(parent, Qt::CustomizeWindowHint),
-    ui(new Ui::ScreenShotDlg)
+    ui(new Ui::ScreenShotDlg),
+    mode(Capture)
 {
     ui->setupUi(this);
     this->setWindowOpacity(0.5);
@@ -19,18 +20,33 @@ ScreenShotDlg::~ScreenShotDlg()
 void ScreenShotDlg::setScreenShotPic(QPixmap pic)
 {
     originalPixmap = pic;
-    this->ui->screenshotLabel->setPixmap(originalPixmap);
+    setMode(Edit);
+}
+
+void ScreenShotDlg::resizeEvent ( QResizeEvent * event)
+{
+    QDialog::resizeEvent(event);
+    this->ui->screenshotLabel->resize(this->size());
+}
+
+void ScreenShotDlg::setMode(EditMode mode)
+{
+    this->hide();
+    this->mode = mode;
+    if ( mode == Capture )
+    {
+        this->ui->screenshotLabel->setPixmap(0);
+        this->setWindowOpacity(0.5);
+    }
+    else if ( mode == Edit )
+    {
+        this->ui->screenshotLabel->setPixmap(originalPixmap);
+        this->setWindowOpacity(1.0);
+    }
     this->ui->screenshotLabel->hide();
     this->ui->screenshotLabel->show();
-    this->setWindowOpacity(1.0);
+    this->show();
 }
-
-void ScreenShotDlg::resetScreenShotPic()
-{
-    this->ui->screenshotLabel->setPixmap(0);
-    this->setWindowOpacity(0.5);
-}
-
 
 int ScreenShotDlg::getWidth()
 {
@@ -103,11 +119,6 @@ void ScreenShotDlg::mouseReleaseEvent(QMouseEvent* event)
     }
 }
 
-void ScreenShotDlg::resizeEvent ( QResizeEvent * event)
-{
-    QDialog::resizeEvent(event);
-    this->ui->screenshotLabel->resize(this->size());
-}
 
 void ScreenShotDlg::changeEvent(QEvent *e)
 {
