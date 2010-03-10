@@ -19,7 +19,6 @@ public:
 
     enum DlgState { capture, wait, edit };
     virtual void showEvent ( QShowEvent * event );
-    Ui::MainDlg *ui;
 
 protected:
     void changeEvent(QEvent *e);
@@ -28,6 +27,7 @@ protected:
     DlgState dlgState;
 
 private:
+    Ui::MainDlg *ui;
     ScreenShotDlg *screenShotDlg;
     QTimer *timer;
 
