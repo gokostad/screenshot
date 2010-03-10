@@ -49,6 +49,7 @@ protected:
 private:
     QPoint mLastMousePosition;
     bool mMoving;
+    bool resizing;
 };
 
 #endif // SCREENSHOTDLG_H
